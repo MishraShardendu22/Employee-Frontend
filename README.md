@@ -1,4 +1,7 @@
-# Employee Leave Management - Frontend
+# Employee Leave Management System
+
+> **🎨 Development Note**: This application was vibe-coded! The database schema, API routes, frontend design, UI components, and theme palette were crafted manually without AI assistance. The rest of the codebase was developed with AI assistance and thoroughly reviewed by a human developer.
+
 
 A modern, responsive web application for managing employee leave requests, built with Next.js 16, React 19, TypeScript, and Tailwind CSS.
 
