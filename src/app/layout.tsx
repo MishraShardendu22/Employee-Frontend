@@ -24,30 +24,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="light" suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var theme = localStorage.getItem('theme');
-                  if (theme === 'dark') {
-                    document.documentElement.classList.remove('light');
-                    document.documentElement.classList.add('dark');
-                  } else {
-                    localStorage.setItem('theme', 'light');
-                    document.documentElement.classList.remove('dark');
-                    document.documentElement.classList.add('light');
-                  }
-                } catch (e) {}
-              })();
-            `,
-          }}
-        />
-      </head>
+    <html lang="en" className="dark" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#F5F7FA] text-[#0D0D0D] dark:bg-[#0D1117] dark:text-[#F1F1F1]`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#0D1117] text-white`}
       >
         <AuthProvider>{children}</AuthProvider>
       </body>

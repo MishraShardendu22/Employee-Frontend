@@ -3,65 +3,27 @@
 
 :root {
   --radius: 0.75rem;
-  
-  /* Light Mode Colors - Direct hex values */
-  --primary: #0047AB;
-  --primary-foreground: #FFFFFF;
-  --primary-hover: #003B8F;
-  --secondary: #1E90FF;
-  --secondary-foreground: #FFFFFF;
-  --accent: #FFB400;
-  --accent-foreground: #0D0D0D;
-  --background: #F5F7FA;
-  --foreground: #0D0D0D;
-  --card: #FFFFFF;
-  --card-foreground: #0D0D0D;
-  --popover: #FFFFFF;
-  --popover-foreground: #0D0D0D;
-  --muted: #F5F7FA;
-  --muted-foreground: #6C757D;
-  --border: #E0E6ED;
-  --input: #E0E6ED;
-  --ring: #0047AB;
-  --destructive: #DC3545;
-  --destructive-foreground: #FFFFFF;
-  --success: #28A745;
-  --warning: #FFC107;
-  --chart-1: #0047AB;
-  --chart-2: #1E90FF;
-  --chart-3: #28A745;
-  --chart-4: #FFB400;
-  --chart-5: #DC3545;
-  
-  --sidebar: #FFFFFF;
-  --sidebar-foreground: #0D0D0D;
-  --sidebar-primary: #0047AB;
-  --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #F5F7FA;
-  --sidebar-accent-foreground: #0D0D0D;
-  --sidebar-border: #E0E6ED;
-  --sidebar-ring: #0047AB;
 }
 
 .dark {
-  /* Dark Mode Colors - Direct hex values */
+  /* Dark Mode Colors - Better contrast and visibility */
   --primary: #3C8DFF;
   --primary-foreground: #FFFFFF;
   --primary-hover: #3378D6;
   --secondary: #1B6FD1;
   --secondary-foreground: #FFFFFF;
   --accent: #FFB400;
-  --accent-foreground: #0D0D0D;
+  --accent-foreground: #000000;
   --background: #0D1117;
-  --foreground: #F1F1F1;
+  --foreground: #FFFFFF;
   --card: #161B22;
-  --card-foreground: #F1F1F1;
-  --popover: #161B22;
-  --popover-foreground: #F1F1F1;
-  --muted: #161B22;
-  --muted-foreground: #7A7F87;
+  --card-foreground: #FFFFFF;
+  --popover: #1C2128;
+  --popover-foreground: #FFFFFF;
+  --muted: #21262D;
+  --muted-foreground: #B8BCC2;
   --border: #2B2F36;
-  --input: #2B2F36;
+  --input: #21262D;
   --ring: #3C8DFF;
   --destructive: #FF4D4D;
   --destructive-foreground: #FFFFFF;
@@ -74,11 +36,11 @@
   --chart-5: #FF4D4D;
   
   --sidebar: #0D1117;
-  --sidebar-foreground: #F1F1F1;
+  --sidebar-foreground: #FFFFFF;
   --sidebar-primary: #3C8DFF;
   --sidebar-primary-foreground: #FFFFFF;
   --sidebar-accent: #161B22;
-  --sidebar-accent-foreground: #F1F1F1;
+  --sidebar-accent-foreground: #FFFFFF;
   --sidebar-border: #2B2F36;
   --sidebar-ring: #3C8DFF;
 }
@@ -96,6 +58,102 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
+  color: #FFFFFF;
+}
+
+p {
+  color: #E6EDF3;
+}
+
+/* Ensure all text is visible */
+.text-foreground {
+  color: #FFFFFF !important;
+}
+
+.text-muted-foreground {
+  color: #B8BCC2 !important;
+}
+
+/* Card text improvements */
+[data-slot="card"] {
+  color: #FFFFFF;
+}
+
+[data-slot="card-title"] {
+  color: #FFFFFF !important;
+}
+
+[data-slot="card-description"] {
+  color: #B8BCC2 !important;
+}
+
+/* Table improvements */
+table {
+  color: #FFFFFF;
+}
+
+th {
+  color: #FFFFFF !important;
+  font-weight: 600;
+}
+
+td {
+  color: #E6EDF3 !important;
+}
+
+/* Input and form improvements */
+input, textarea, select {
+  background-color: #21262D !important;
+  color: #FFFFFF !important;
+  border-color: #2B2F36 !important;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #7A7F87 !important;
+}
+
+/* Button text improvements */
+button {
+  font-weight: 500;
+}
+
+/* Label improvements */
+label {
+  color: #FFFFFF !important;
+  font-weight: 500;
+}
+
+/* Alert improvements */
+[role="alert"] {
+  color: #FFFFFF !important;
+}
+
+/* Ensure proper contrast */
+.bg-card {
+  background-color: #161B22 !important;
+}
+
+.bg-popover {
+  background-color: #1C2128 !important;
+}
+
+/* Scrollbar styling for dark theme */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0D1117;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2B2F36;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3C8DFF;
 }
 
 .text-gradient {
