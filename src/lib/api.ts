@@ -138,8 +138,9 @@ export const leaveAPI = {
   getById: (id: number) => fetchAPI<Leave>(`/leaves/${id}`),
   getByEmployee: (employeeId: number) =>
     fetchAPI<Leave[]>(`/leaves/employee/${employeeId}`),
-  create: (data: LeaveCreate) =>
-    fetchAPI<Leave>("/leaves/", {
+  getPending: () => fetchAPI<Leave[]>("/leaves/pending"),
+  create: (data: LeaveCreate, employeeId: number) =>
+    fetchAPI<Leave>(`/leaves/?employee_id=${employeeId}`, {
       method: "POST",
       body: JSON.stringify(data),
     }),
@@ -178,9 +179,9 @@ export const leaveBalanceAPI = {
 export const approvalAPI = {
   getAll: () => fetchAPI<Approval[]>("/approvals/"),
   getById: (id: number) => fetchAPI<Approval>(`/approvals/${id}`),
-  getPending: () => fetchAPI<Leave[]>("/approvals/pending"),
-  create: (data: ApprovalCreate) =>
-    fetchAPI<Approval>("/approvals/", {
+  getPending: () => fetchAPI<Leave[]>("/leaves/pending"),
+  create: (data: ApprovalCreate, managerId: number) =>
+    fetchAPI<Approval>(`/approvals/?manager_id=${managerId}`, {
       method: "POST",
       body: JSON.stringify(data),
     }),

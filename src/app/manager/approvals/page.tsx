@@ -7,10 +7,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { FileText, Clock, CheckCircle, XCircle } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useAuth } from "@/contexts/AuthContext";
 import { approvalAPI, leaveTypeAPI } from "@/lib/api";
 import type { Leave, LeaveType } from "@/lib/types";
 
 export default function ManagerApprovalsPage() {
+  const { user } = useAuth();
   const [pendingLeaves, setPendingLeaves] = useState<Leave[]>([]);
   const [leaveTypes, setLeaveTypes] = useState<LeaveType[]>([]);
   const [loading, setLoading] = useState(true);
@@ -46,8 +48,13 @@ export default function ManagerApprovalsPage() {
     setError("");
     setSuccess("");
 
+    if (!user?.user_id) {
+      setError("Manager not authenticated");
+      return;
+    }
+
     try {
-      await approvalAPI.create({ leave_id: leaveId, decision });
+      await approvalAPI.create({ leave_id: leaveId, decision }, user.user_id);
       setSuccess(`Leave request ${decision} successfully`);
       fetchData();
     } catch (err) {

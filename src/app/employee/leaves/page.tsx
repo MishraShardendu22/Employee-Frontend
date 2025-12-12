@@ -85,8 +85,13 @@ export default function EmployeeLeavesPage() {
     setError("");
     setSuccess("");
 
+    if (!user?.user_id) {
+      setError("User not authenticated");
+      return;
+    }
+
     try {
-      await leaveAPI.create(formData);
+      await leaveAPI.create(formData, user.user_id);
       setSuccess("Leave request submitted successfully");
       setDialogOpen(false);
       setFormData({ type_id: 0, start_time: "", end_time: "", reason: "" });
